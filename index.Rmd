@@ -1,0 +1,24 @@
+---
+title: "Notes for R"
+author: "Edgar Jasso"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is a brief intro to the `R` , the statistical software language that will be use in Math 211 at North Seattle College.
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# What is this about?
+
+In this class, Math 211, we will use technology to do all our calculations. These notes will introduce most the topics neeed to solve all problems in this class.
+## Usage
+
+I will add examples along the quarter. In particular, I will be adding worked examples prior to our `R`-assignments, so that you can answer the assignments  after going through the examples on these notes.
+
+
+

@@ -1,0 +1,168 @@
+---
+title: "R Assignment 1"
+output:
+  pdf_document: default
+  html_notebook: default
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+The Behavioral Risk Factor Surveillance System (BRFSS) is an annual
+telephone survey of 350,000 people in the United States. As its name
+implies, the BRFSS is designed to identify risk factors in the adult
+population and report emerging health trends. For example, respondents
+are asked about their diet and weekly physical activity, their HIV/AIDS
+status, possible tobacco use, and even their level of healthcare
+coverage.
+
+The BRFSS Web site (<http://www.cdc.gov/brfss>) contains a complete
+description of the survey, including the research questions that
+motivate the study and other interesting results. We will focus on a
+random sample of people from the BRFSS survey conducted in 2000. While
+there are over 200 variables in this data set, we will work with a small
+subset.
+
+## Loading the **dataset**
+
+Begin by loading the dataset into your R workspace by running the
+command in the chunk below:
+
+```{r}
+source("http://www.openintro.org/stat/data/cdc.R")
+```
+
+The file cdc.R is an R-**data set**, as such it has a special format,
+and we can use certain commands to access the data.
+
+> **Note**: for other types of formats, we may have to use other
+> commands
+
+## Viewing the data set
+
+Would it be a good idea to *view* this entire data set? The command
+`View` will create a table with all entries of the data set. See what
+happens when you run the chunk below ( the output may open in a separate
+tab. Make sure to come back to this tab to continue.)
+
+```{r}
+View(cdc)
+```
+
+Ok, perhaps it's a better idea to read parts of the data set. For
+example, if we want to see the variables in the set, we can run the
+command `names`. Do it in the chink below to find out what variables are
+stored in this data set.
+
+```{r}
+names(cdc)
+```
+
+We can also view, for example, the first 5 rows of the data set. Run the
+command below to see the output
+
+```{r}
+head(cdc, 5)
+```
+
+Similarly, we can also view the last 5 rows by writing the command
+`tail(cdc, 5)`
+
+# Viewing parts of the data set
+
+What if we want to see only some variables ( columns) but not others?
+The command below returns the columns 2-thorugh-5 of the data set only
+
+```{r}
+cdc[2:5]
+```
+
+## Assignation
+
+Sometimes it will be useful to make a different data frame, and save it
+under a different name. In R, this is called an **assigning an object to
+a variable**, or an *assignment*. We do this by typing
+
+`new_object -< old_object`
+
+For example, the following command will create a new data set, called
+mycdc, that includes only the first 1000 rows if the original data set
+
+```{r}
+mycdc <- head(cdc, 1000)
+```
+
+## Ordering data by a variable
+
+If we want to reorder the data according to the values of one of the
+columns, we can do that by using the command `order( , )` the syntax is
+
+`data_frame[order(data_frame&variable), ]`
+
+Run the chinks of code below to see it in action
+
+```{r}
+ordered <- cdc[order(mycdc$height), ]
+```
+
+Let's now see the first 10 rows of this new data set. Run the chunk of
+code below.
+
+```{r}
+head(ordered, 10)
+```
+
+# Questions
+
+## Q1
+
+List all variables in the data set cdc.R. For each variable, determine
+if it is Categorical, or numerical, and if numerical, if it is discrete
+or continuous.
+
+```{r}
+names(cdc)
+```
+
+-   Gen health: **Categorical**
+
+-   Exerany: **categorical**
+
+-   Hlthplan; **Categorical**
+
+-   Smoke: **Categorical**
+
+-   Height: **Numerical: continuous**
+
+-   Weight" **Numerical: Continuous**
+
+-   WtDesired: **Numerical Continous**
+
+-   Age: **Numerical Discrete**
+
+-   Gender: **Categorical**
+
+## Q3
+
+How many people were used in this survey?
+
+20,000
+
+## Q2
+
+Create a new data set that has only the last 5 columns, and only the
+first 5000 rows of the data set cdc.R
+
+```{r}
+lastcdc<- cdc[5:9]
+head(lastcdc, 5000)
+```
+
+## Q4
+
+Order the data set you have in Q3 by age. Save it as a new data set.
+
+```{r}
+ordy <- lastcdc[order(lastcdc$age), ]
+head(ordy, 5000)
+```
